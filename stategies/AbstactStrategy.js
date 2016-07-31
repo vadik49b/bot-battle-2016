@@ -26,13 +26,13 @@ module.exports = class AbstractStrategy {
     }
 
     this.sortedFiguresSize = [];
-    for (const id of this.figuresSize) {
-      sortedFiguresSize.push({
+    for (const id of Object.keys(this.figuresSize)) {
+      this.sortedFiguresSize.push({
         id,
         size: this.figuresSize[id]
       });
     }
-    sortedFiguresSize.sort((a, b) => (b - a));
+    this.sortedFiguresSize.sort((a, b) => (b - a));
   }
 
   makeMove(color) {
