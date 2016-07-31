@@ -38,9 +38,9 @@ module.exports = class AbstractStrategy {
 
   initGraph() {
     this.graph = [];
-   for (let i = 0; i < this.height; i += 1) {
+   for (let i = 0; i < this.figures_count; i += 1) {
      const row = [];
-     for (let j = 0; j < this.width; j += 1) {
+     for (let j = 0; j < this.figures_count; j += 1) {
        row.push(0);
      }
      this.graph.push(row);
