@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
     status: 'ok',
     figure: strategy.makeMove(color)
   };
+  console.log('GET: ', result);
   res.json(result);
 });
 
