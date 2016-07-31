@@ -24,6 +24,15 @@ module.exports = class AbstractStrategy {
         }
       }
     }
+
+    this.sortedFiguresSize = [];
+    for (const id of this.figuresSize) {
+      sortedFiguresSize.push({
+        id,
+        size: this.figuresSize[id]
+      });
+    }
+    sortedFiguresSize.sort((a, b) => (b - a));
   }
 
   makeMove(color) {
