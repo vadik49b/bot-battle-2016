@@ -32,7 +32,7 @@ module.exports = class AbstractStrategy {
         size: this.figuresSize[id]
       });
     }
-    this.sortedFiguresSize.sort((a, b) => (b - a));
+    this.sortedFiguresSize.sort((a, b) => (b.size - a.size));
   }
 
   makeMove(color) {
