@@ -9,6 +9,7 @@ module.exports = class AbstractStrategy {
     this.coloredFigures = {};
     // JOHN CEEEENA !!!!!!! :)
     this.init();
+    this.initGraph();
   }
 
   init() {
@@ -33,6 +34,37 @@ module.exports = class AbstractStrategy {
       });
     }
     this.sortedFiguresSize.sort((a, b) => (b.size - a.size));
+  }
+
+  initGraph() {
+    this.graph = [];
+   for (let i = 0; i < this.height; i += 1) {
+     const row = [];
+     for (let j = 0; j < this.width; j += 1) {
+       row.push(0);
+     }
+     this.graph.push(row);
+   }
+   for (let i = 0; i < this.height; i += 1) {
+     for (let j = 0; j < this.width; j += 1) {
+       if (j < this.width - 1 && this.cells[i][j] != this.cells[i][j + 1]) {
+         this.graph[this.cells[i][j]][this.cells[i][j + 1]] = 1;
+         this.graph[this.cells[i][j + 1]][this.cells[i][j]] = 1;
+       }
+       if (i < this.height - 1 && this.cells[i][j] != this.cells[i + 1][j]) {
+         this.graph[this.cells[i][j]][this.cells[i + 1][j]] = 1;
+         this.graph[this.cells[i + 1][j]][this.cells[i][j]] = 1;
+       }
+       if (i < this.height - 1 && i % 2 == 0 && j != 0 && this.cells[i][j] != this.cells[i + 1][j - 1]) {
+         this.graph[this.cells[i][j]][this.cells[i + 1][j - 1]] = 1;
+         this.graph[this.cells[i + 1][j - 1]][this.cells[i][j]] = 1;
+       }
+       if (i < this.height - 1 && j < this.width - 1 && i % 2 == 1 && this.cells[i][j] != this.cells[i + 1][j + 1]) {
+         this.graph[this.cells[i][j]][this.cells[i + 1][j + 1]] = 1;
+         this.graph[this.cells[i + 1][j + 1]][this.cells[i][j]] = 1;
+       }
+     }
+   }
   }
 
   makeMove(color) {
