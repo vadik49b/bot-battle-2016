@@ -11,10 +11,7 @@ const AbstractStrategy = require('./AbstactStrategy');
 module.exports = class InFaceStrategy extends AbstractStrategy {
   makeMove(color) {
     for (const figure of this.sortedFiguresSize) {
-      if (
-        this.coloredFigures[figure.id] == null &&
-        this.checkNearColors(+figure.id, color)
-      ) {
+      if (this.coloredFigures[figure.id] == null && this.checkNearColors(figure.id, color)) {
         this.coloredFigures[figure.id] = color;
         return +figure.id;
       }
@@ -25,7 +22,7 @@ module.exports = class InFaceStrategy extends AbstractStrategy {
   checkNearColors(id, color) {
     for (let i = 0; i < this.figures_count; i += 1 ) {
       if (this.graph[id][i] == 1) {
-        if (this.coloredFigures[i] === color) {
+        if (this.coloredFigures[i] == color) {
           return false;
         }
       }

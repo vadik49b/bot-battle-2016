@@ -10,6 +10,7 @@ module.exports = class AbstractStrategy {
     // JOHN CEEEENA !!!!!!! :)
     this.init();
     this.initGraph();
+    console.log('graph', this.graph);
   }
 
   init() {
