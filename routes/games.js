@@ -13,8 +13,8 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  const id = req.path.id;
-  const color = req.param.color;
+  const id = req.params.id;
+  const color = req.query.color;
   const strategy = games[id];
   if (!strategy) {
     throw new Error(`There is no game with id ${id}`);
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const id = req.path.id;
+  const id = req.params.id;
   const { figure, color } = req.body;
   const strategy = games[id];
   if (!strategy) {
@@ -37,7 +37,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  const id = req.path.id;
+  const id = req.params.id;
   const strategy = games[id];
   if (!strategy) {
     throw new Error(`There is no game with id ${id}`);

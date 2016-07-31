@@ -15,7 +15,7 @@ module.exports = class AbstractStrategy {
     this.figuresSize = {};
     for (let i = 0; i < this.height; i += 1) {
       for (let j = 0; j < this.width; j += 1) {
-        const figureId = cells[i][j];
+        const figureId = this.cells[i][j];
         const prevSize = this.figuresSize[figureId];
         if (prevSize) {
           this.figuresSize[figureId] = prevSize + 1;
