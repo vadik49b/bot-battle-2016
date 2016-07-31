@@ -10,10 +10,15 @@ const AbstractStrategy = require('./AbstactStrategy');
 
 module.exports = class InFaceStrategy extends AbstractStrategy {
   makeMove(color) {
-    return Math.floor(Math.random() * this.figures_count);
+    const figure = () => Math.floor(Math.random() * this.figures_count);
+    let nextFigureToColor = figure();
+    while (!!this.coloredFigures[nextFigureToColor]) {
+      nextFigureToColor = figure();
+    }
+    return nextFigureToColor;
   }
 
   notifyMove(figure, color) {
-
+    this.coloredFigures[figure] = color;
   }
 }

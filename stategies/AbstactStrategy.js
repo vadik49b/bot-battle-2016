@@ -6,6 +6,7 @@ module.exports = class AbstractStrategy {
     this.height = height;
     this.cells = cells;
     this.figures_count = figures_count;
+    this.coloredFigures = {};
     // JOHN CEEEENA !!!!!!! :)
     this.init();
   }
