@@ -13,7 +13,7 @@ module.exports = class InFaceStrategy extends AbstractStrategy {
     for (const figure of this.sortedFiguresSize) {
       if (
         this.coloredFigures[figure.id] == null &&
-        this.checkNearColors(figure.id, color)
+        this.checkNearColors(figure.id, color) &&
         this.checkNearColors(figure.id, (color + 1) % 4)
       ) {
         this.coloredFigures[figure.id] = color;
