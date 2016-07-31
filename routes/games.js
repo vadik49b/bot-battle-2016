@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  const color = req.query.color;
+  const color = +req.query.color;
   const strategy = games[id];
   if (!strategy) {
     throw new Error(`There is no game with id ${id}`);
