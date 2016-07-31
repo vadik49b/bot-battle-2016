@@ -13,7 +13,7 @@ module.exports = class InFaceStrategy extends AbstractStrategy {
     for (const figure of this.sortedFiguresSize) {
       if (this.coloredFigures[figure.id] == null) {
         this.coloredFigures[figure.id] = color;
-        return figure.id;
+        return +figure.id;
       }
     }
     return 0;
