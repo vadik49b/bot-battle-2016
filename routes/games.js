@@ -34,7 +34,8 @@ router.put('/:id', (req, res) => {
   if (!strategy) {
     throw new Error(`There is no game with id ${id}`);
   }
-  res.json(OK_RESULT)
+  strategy.notifyMove(figure, color);
+  res.json(OK_RESULT);
 });
 
 router.delete('/:id', (req, res) => {
