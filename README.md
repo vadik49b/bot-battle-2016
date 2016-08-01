@@ -9,6 +9,8 @@ This is JOHN CENA's team solution for bot battle 2016 at [eventspace.by](https:/
 - 3-rd prize in main round
 - 1-st place after same time start :)
 
+![image with results](https://github.com/vadik49b/bot-battle-2016/blob/master/results.jpg)
+
 ## Team members
 - [Vadim Boltach](https://github.com/vadik49b)
 - [Dmitry Kabak](https://github.com/kabbi)
